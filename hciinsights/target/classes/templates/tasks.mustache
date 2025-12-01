@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> fragments/html_header}}
+
+<body class="cream-bg">
+
+<div class="container" style="max-width: 800px; margin-top: 30px;">
+
+    <h1>Tasks for Study {{studyId}}</h1>
+
+    <a class="btn primary" href="/studies/{{studyId}}/tasks/create">+ Add Task</a>
+
+    {{#errorMessage}}
+        <p class="error-message">{{.}}</p>
+    {{/errorMessage}}
+
+    {{#tasks}}
+        <div class="card" style="padding: 15px; margin-top: 20px;">
+            <h3>Task {{taskOrder}}</h3>
+            <p>{{description}}</p>
+
+            <p><strong>Success Criteria:</strong> {{successCriteria}}</p>
+            <p><strong>Expected Time:</strong> {{expectedCompTime}} min</p>
+
+            <a class="btn small" href="/tasks/{{taskId}}">View</a>
+        </div>
+    {{/tasks}}
+
+    {{^tasks}}
+        <p>No tasks yet. Create one!</p>
+    {{/tasks}}
+
+</div>
+
+{{> fragments/footer}}
+</body>
+</html>

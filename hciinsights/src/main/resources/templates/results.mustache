@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> fragments/html_header}}
+<body>
+
+{{> fragments/navbar}}
+
+<div class="container">
+
+    <h2>Session Results</h2>
+
+    <a class="btn" href="/sessions/{{sessionId}}/results/create">Add Result</a>
+
+    {{#results}}
+    <div class="card">
+        <h4>Task {{taskId}}</h4>
+
+        <p><strong>Completed:</strong> {{isComplete}}</p>
+        <p><strong>Time:</strong> {{completionTime}}</p>
+        <p><strong>Errors:</strong> {{errors}}</p>
+        <p><strong>Notes:</strong> {{notes}}</p>
+
+        <a class="btn btn-danger" href="/sessions/{{sessionId}}/results/delete/{{resultId}}">Delete</a>
+    </div>
+    {{/results}}
+
+    {{^results}}
+    <p>No results recorded yet.</p>
+    {{/results}}
+
+</div>
+
+{{> fragments/footer}}
+</body>
+</html>

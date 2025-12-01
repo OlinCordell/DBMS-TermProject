@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> fragments/html_header}}
+
+{{> fragments/navbar }}
+
+
+<body>
+
+<div class="container" style="max-width:700px; margin-top:40px;">
+
+    <h2>{{study.title}}</h2>
+
+    <p><strong>Description:</strong> {{study.description}}</p>
+    <p><strong>Platform:</strong> {{study.platform}}</p>
+    <p><strong>Status:</strong> {{study.status}}</p>
+    <p><strong>Created:</strong> {{study.createdAt}}</p>
+
+    <div style="margin-top:20px;">
+        <a class="btn" href="/studies">Back to Studies</a>
+        <a class="btn" href="/studies/{{studyId}}/tasks">View Tasks</a>
+        <a class="btn" href="/studies/{{studyId}}/sessions">View Sessions</a>
+        <a class="btn" href="/studies/delete/{{study.studyId}}" style="background-color:#b03a3a;">Delete</a>
+    </div>
+
+</div>
+
+{{> fragments/footer}}
+</body>
+</html>

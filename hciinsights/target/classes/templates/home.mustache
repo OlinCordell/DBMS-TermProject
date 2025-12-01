@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> fragments/html_header}}
+
+<body class="cream-bg">
+
+{{> fragments/navbar }}
+
+<div class="container" style="margin-top: 40px;">
+
+    <!-- Welcome Section -->
+    <div class="center-align">
+        {{#loggedInUser}}
+            <h2>Welcome, {{username}}!</h2>
+        {{/loggedInUser}}
+
+        {{#errorMessage}}
+            <p class="error-message">{{.}}</p>
+        {{/errorMessage}}
+
+        <p style="margin-top: 10px;">
+            Your HCI research dashboard is ready.
+        </p>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="center-align" style="margin-top: 30px;">
+        <a class="btn" href="/studies/create">Create New Study</a>
+        <a class="btn" href="/studies">View All Studies</a>
+    </div>
+
+    <hr style="margin: 40px 0;">
+
+    <!-- Recent Studies Section -->
+    <div>
+        <h3>Your Recent Studies</h3>
+
+        {{#studies}}
+            <div class="card">
+                <h4 style="margin-bottom: 6px;">{{title}}</h4>
+
+                <p>{{description}}</p>
+
+                <p><strong>Platform:</strong> {{platform}}</p>
+                <p><strong>Status:</strong> {{status}}</p>
+
+                <a class="btn small" href="/studies/{{studyId}}">View</a>
+            </div>
+        {{/studies}}
+
+        {{^studies}}
+            <p>You haven’t created any studies yet. Start by creating one!</p>
+        {{/studies}}
+    </div>
+
+</div>
+
+{{> fragments/footer}}
+</body>
+</html>

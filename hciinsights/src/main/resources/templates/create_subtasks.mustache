@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> fragments/html_header }}
+<body>
+{{> fragments/navbar }}
+
+<div class="container" style="max-width:600px;">
+
+    <h2>Create Subtask</h2>
+
+    <form method="post">
+
+        <label>Description</label>
+        <textarea name="description" required></textarea>
+
+        <label>Expected Completion Time (seconds)</label>
+        <input name="expectedCompTime" type="number" min="0">
+
+        <button class="btn">Create</button>
+    </form>
+
+</div>
+
+{{> fragments/footer }}
+</body>
+</html>
+

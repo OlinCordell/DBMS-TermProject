@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> fragments/html_header}}
+
+<body class="cream-bg">
+
+<div class="container" style="max-width: 700px; margin-top: 40px;">
+
+    <h2>Task {{task.taskOrder}}</h2>
+
+    <p><strong>Description:</strong></p>
+    <p>{{task.description}}</p>
+
+    <p><strong>Success Criteria:</strong></p>
+    <p>{{task.successCriteria}}</p>
+
+    <p><strong>Expected Completion Time:</strong> {{task.expectedCompTime}} minutes</p>
+
+    <div style="margin-top: 20px;">
+        <a class="btn" href="/studies/{{task.studyId}}/tasks">Back to Tasks</a>
+        <a class="btn" href="/studies/{{task.studyId}}/tasks/{{task.taskId}}/subtasks">View Subtasks</a>
+        <a class="btn" style="background-color: #b03a3a;"
+           href="/tasks/{{task.taskId}}/delete">Delete</a>
+    </div>
+
+</div>
+
+{{> fragments/footer}}
+</body>
+</html>

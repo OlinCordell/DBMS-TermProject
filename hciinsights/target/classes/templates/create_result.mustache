@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> fragments/html_header}}
+<body>
+
+{{> fragments/navbar}}
+
+<div class="container">
+
+    <h2>Add Result</h2>
+
+    <form method="POST" action="/sessions/{{sessionId}}/results/create">
+
+        <label for="taskId">Task</label>
+        <select name="taskId" id="taskId">
+            {{#tasks}}
+                <option value="{{taskId}}">Task {{taskOrder}}</option>
+            {{/tasks}}
+        </select>
+
+        <label>Completed?</label>
+        <select name="isComplete">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+
+        <label>Completion Time (seconds)</label>
+        <input type="number" name="completionTime">
+
+        <label>Errors</label>
+        <input type="number" name="errors">
+
+        <label>Notes</label>
+        <textarea name="notes"></textarea>
+
+        <button type="submit" class="btn">Save Result</button>
+
+    </form>
+
+</div>
+
+{{> fragments/footer}}
+</body>
+</html>

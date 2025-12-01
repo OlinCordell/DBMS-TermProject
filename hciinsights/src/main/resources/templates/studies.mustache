@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> fragments/html_header}}
+
+<body>
+
+{{> fragments/navbar }}
+
+<div class="container" style="max-width: 800px; margin-top: 40px;">
+
+    <h1>Your Studies</h1>
+
+    {{#loggedInUser}}
+        <p>Logged in as <strong>{{username}}</strong></p>
+    {{/loggedInUser}}
+
+    {{#errorMessage}}
+        <p class="error-message">{{.}}</p>
+    {{/errorMessage}}
+
+    <div style="margin: 20px 0;">
+        <a class="btn" href="/studies/create">+ Create New Study</a>
+    </div>
+
+    {{#studies}}
+        <div class="card" style="padding: 15px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 8px;">
+            
+            <h3 style="margin: 0 0 8px 0;">{{title}}</h3>
+
+            <p><strong>Platform:</strong> {{platform}}</p>
+            <p><strong>Status:</strong> {{status}}</p>
+            <p><strong>Created:</strong> {{createdAt}}</p>
+
+            <div style="margin-top: 10px;">
+                <a class="btn" href="/studies/{{studyId}}">View</a>
+                <a class="btn" href="/studies/delete/{{studyId}}" 
+                   style="background-color: #b03a3a;">Delete</a>
+            </div>
+
+        </div>
+    {{/studies}}
+
+    {{^studies}}
+        <p>No studies found. Create one to get started!</p>
+    {{/studies}}
+
+</div>
+
+{{> fragments/footer}}
+</body>
+</html>

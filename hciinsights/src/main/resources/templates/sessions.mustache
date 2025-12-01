@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+{{> fragments/html_header}}
+<body>
+
+{{> fragments/navbar}}
+
+<div class="container">
+
+    <h2>Sessions for Study {{studyId}}</h2>
+
+    <a class="btn" href="/studies/{{studyId}}/sessions/create">+ Create Session</a>
+
+    {{#sessions}}
+    <div class="card">
+        <h3>Session #{{sessionId}}</h3>
+        <p><strong>Participant:</strong> {{participantId}}</p>
+        <p><strong>Scheduled:</strong> {{scheduled}}</p>
+        <p><strong>Score:</strong> {{score}}</p>
+
+        <a class="btn" href="/studies/{{studyId}}/sessions/{{sessionId}}">View</a>
+    </div>
+    {{/sessions}}
+
+    {{^sessions}}
+    <p>No sessions yet.</p>
+    {{/sessions}}
+
+</div>
+
+{{> fragments/footer}}
+</body>
+</html>

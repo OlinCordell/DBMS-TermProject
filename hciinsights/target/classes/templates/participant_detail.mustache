@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> fragments/html_header }}
+
+<body>
+{{> fragments/navbar }}
+
+<div class="container" style="max-width:700px;">
+
+    <h2>{{participant.fullName}}</h2>
+
+    <p><strong>Age:</strong> {{participant.age}}</p>
+    <p><strong>Occupation:</strong> {{participant.occupation}}</p>
+    <p><strong>Experience:</strong> {{participant.occupationExp}}</p>
+    <p><strong>Email:</strong> {{participant.email}}</p>
+
+    <div style="margin-top:20px;">
+        <a class="btn" href="/participants">Back</a>
+    </div>
+
+</div>
+
+{{> fragments/footer }}
+</body>
+</html>

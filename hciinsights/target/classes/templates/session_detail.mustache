@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+{{> fragments/html_header}}
+<body>
+
+{{> fragments/navbar}}
+
+<div class="container">
+
+    <h2>Session {{session.sessionId}}</h2>
+
+    <p><strong>Participant:</strong> {{session.participantId}}</p>
+    <p><strong>Scheduled:</strong> {{session.scheduled}}</p>
+    <p><strong>Notes:</strong> {{session.notes}}</p>
+    <p><strong>Score:</strong> {{session.score}}</p>
+
+    <a class="btn" href="/sessions/{{session.sessionId}}/results">View Results</a>
+    <a class="btn" href="/studies/{{session.studyId}}/sessions">Back to Sessions</a>
+
+</div>
+
+{{> fragments/footer}}
+</body>
+</html>

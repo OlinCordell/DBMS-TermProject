@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> fragments/html_header }}
+<body>
+{{> fragments/navbar }}
+
+<div class="container" style="max-width:700px;">
+
+    <h2>Subtasks for Task {{taskId}}</h2>
+
+    <a class="btn" href="/studies/{{studyId}}/tasks/{{taskId}}/subtasks/create">+ Add Subtask</a>
+
+    {{#subtasks}}
+    <div class="card">
+        <h4>Subtask {{subtaskId}}</h4>
+        <p>{{description}}</p>
+        <p><strong>Expected Time:</strong> {{expectedCompTime}} sec</p>
+
+        <a class="btn btn-danger"
+           href="/studies/{{studyId}}/tasks/{{taskId}}/subtasks/{{subtaskId}}/delete">Delete</a>
+    </div>
+    {{/subtasks}}
+
+    {{^subtasks}}
+    <p>No subtasks yet.</p>
+    {{/subtasks}}
+
+</div>
+
+{{> fragments/footer }}
+</body>
+</html>
+
