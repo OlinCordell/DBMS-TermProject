@@ -67,4 +67,23 @@ public class TaskController {
         }
     }
 
+    @GetMapping("/view/{taskId}")
+    public ModelAndView viewTask(@PathVariable("studyId") int studyId,
+                                @PathVariable("taskId") int taskId) {
+
+        ModelAndView mv = new ModelAndView("task_detail");
+
+        try {
+            mv.addObject("task", taskService.getTaskById(taskId));
+        } catch (Exception e) {
+            mv.addObject("errorMessage", "Failed to load task details.");
+        }
+
+        mv.addObject("studyId", studyId);
+        mv.addObject("loggedInUser", userService.getLoggedInUser());
+        
+        return mv;
+    }
+
+
 }

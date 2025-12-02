@@ -23,6 +23,7 @@ public class SessionController {
         this.participantService = participantService;
         this.userService = userService;
     }
+
     @GetMapping
     public ModelAndView listSessions(@PathVariable int studyId) {
         ModelAndView mv = new ModelAndView("sessions");
@@ -65,4 +66,31 @@ public class SessionController {
             return "redirect:/studies" + studyId + "/sessions/create?error=" + e.getMessage();
         }
     }
+
+    @GetMapping("/{sessionId}")
+    public ModelAndView viewSession(@PathVariable("studyId") int studyId,
+                                    @PathVariable("sessionId") int sessionId) {
+
+        ModelAndView mv = new ModelAndView("session_detail");
+
+        try {
+            var session = sessionService.getSessionById(sessionId);
+
+            if (session == null) {
+                mv = new ModelAndView("redirect:/studies/" + studyId + "/sessions?error=NotFound");
+                return mv;
+            }
+
+            mv.addObject("session", session);
+
+        } catch (Exception e) {
+            mv.addObject("errorMessage", "Could not load session details.");
+        }
+
+        mv.addObject("studyId", studyId);
+        mv.addObject("loggedInUser", userService.getLoggedInUser());
+        return mv;
+    }
+
+
 }

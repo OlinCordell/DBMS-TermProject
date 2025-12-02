@@ -4,6 +4,8 @@
 
 <body class="cream-bg">
 
+{{> fragments/navbar}}
+
 <div class="container" style="max-width: 800px; margin-top: 30px;">
 
     <h1>Tasks for Study {{studyId}}</h1>
@@ -22,7 +24,7 @@
             <p><strong>Success Criteria:</strong> {{successCriteria}}</p>
             <p><strong>Expected Time:</strong> {{expectedCompTime}} min</p>
 
-            <a class="btn small" href="/tasks/{{taskId}}">View</a>
+            <a class="btn small" href="/studies/{{studyId}}/tasks/view/{{taskId}}">View</a>
         </div>
     {{/tasks}}
 

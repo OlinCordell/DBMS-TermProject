@@ -66,7 +66,7 @@ public class SessionService {
 
     public Session getSessionById(int sessionId) throws SQLException {
         final String sql = """
-                SELECT session_id, participant_id, study_id, schedules, notes, score
+                SELECT session_id, participant_id, study_id, scheduled, notes, score
                 FROM Session
                 WHERE session_id = ?
                 """;
