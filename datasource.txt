@@ -8,3 +8,5 @@ All data generation logic is contained in the Python script generate_data.inpyb,
 Foreign key relationships between tables (Users, Study, Participant, Task, Subtask, Session, and Result) were carefully maintained to ensure referential integrity.
 
 No external dataset was used. All data in the database is artificially generated and does not contain any personally identifiable information.
+
+Warning: It takes a while to run
