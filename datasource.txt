@@ -9,4 +9,7 @@ Foreign key relationships between tables (Users, Study, Participant, Task, Subta
 
 No external dataset was used. All data in the database is artificially generated and does not contain any personally identifiable information.
 
+The output is in data.sql
+populate.sql is a smaller table used for testing purposes and does not have least one table with more than 1000 rows
+
 Warning: It takes a while to run
